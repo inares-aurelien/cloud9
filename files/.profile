@@ -80,7 +80,7 @@ alias du1='du -h -d 1'
 alias free='free -m'
 alias df='df -h'
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@`hostname`\[\033[01;32m\] \t \[\033[01;33m\]\w\[\033[00m\] \$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[01;32m\] \t \[\033[01;33m\]\w\[\033[00m\] \$ '
 EDITOR=nano
 
 
