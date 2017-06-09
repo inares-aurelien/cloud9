@@ -80,6 +80,10 @@ alias du1='du -h -d 1'
 alias free='free -m'
 alias df='df -h'
 
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[01;32m\] \t \[\033[01;33m\]\w\[\033[00m\] \$ '
+EDITOR=nano
+
+
 
 
 complete -A hostname   rsh rcp telnet rlogin ftp ping disk
@@ -240,8 +244,6 @@ _killall() {
 complete -F _killall killall killps
 
 
-
 GITAWAREPROMPT=~/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[01;32m\] \t \[\033[01;33m\]\w\[\033[00m\] \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\] \$ '
-EDITOR=nano
+PS1='${debian_chroot:+($debian_chroot)}\[[01;34m\]\u@\h\[[01;32m\] \t \[[01;33m\]\w\[[00m\] \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\] \$ '

@@ -26,8 +26,8 @@ docker build -t aureliend/cloud9:latest --compress .
 ```bash
 docker run --rm --name cloud9 -it -p 80:80 aureliend/cloud9:latest node /cloud9/server.js -p 80 -l 0.0.0.0 -w /workspace -a login:password
 ```
-
-
+  
+  
 
 ## Information
 
@@ -36,8 +36,8 @@ To install the C9 SDK:
 
 The github repo:
 [Cloud9 Core](https://github.com/c9/core)
-
-
+  
+  
 
 ## Windows - Docker toolbox (the old docker)
 
@@ -59,8 +59,8 @@ In the VM, enter:
 ```bash
 echo "nameserver 8.8.8.8"  > /etc/resolv.conf
 ```
-
-
+  
+  
 
 ## Other commands
 
