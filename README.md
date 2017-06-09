@@ -42,22 +42,20 @@ The github repo:
 ## Windows - Docker toolbox (the old docker)
 
 ### With cmd
-For starting docker:
+To start docker:
 ```bat
 cd "C:\Program Files\Docker Toolbox"
 "C:\Program Files\Git\bin\bash.exe" --login -i "C:\Program Files\Docker Toolbox\start.sh"
-SET DOCKER_TLS_VERIFY=1
-SET DOCKER_HOST=tcp://192.168.99.100:2376
-SET DOCKER_CERT_PATH=%USERPROFILE%\.docker\machine\machines\default
-SET DOCKER_MACHINE_NAME=default
-SET COMPOSE_CONVERT_WINDOWS_PATHS=true
+REM docker-machine env  "Display the commands to set up the environment for the Docker client"
+@FOR /f "tokens=*" %i IN ('docker-machine env') DO @%i
 ```
 
 ### In case of network and DNS errors
-In VirtualBox, make sure the first network card has 'NAT' mode
+With VirtualBox UI, make sure the first network card of the VM has 'NAT' mode
 In the VM, enter:
 ```bash
-echo "nameserver 8.8.8.8"  > /etc/resolv.conf
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 ```
   
   

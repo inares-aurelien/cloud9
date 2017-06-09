@@ -1,29 +1,28 @@
-# https://github.com/kdelfour/cloud9-docker/blob/master/Dockerfile
-
 FROM debian:jessie-slim
+
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Installation
-RUN echo -e "\n\n\n***** Upgrade system *****\n"                                                                        && \
+RUN echo "\n\n\n***** Upgrade system *****\n"                                                                           && \
     apt-get update && apt-get -y dist-upgrade                                                                           && \
     \
-    echo -e "\n\n\n***** Install some packages for Cloud9 *****\n"                                                      && \
+    echo "\n\n\n***** Install some packages for Cloud9 *****\n"                                                         && \
     apt-get install -y --no-install-recommends nano git wget curl openssl ca-certificates build-essential python sshfs  && \
     \
-    echo -e "\n\n\n***** Install Cloud9 *****\n"                                                                        && \
+    echo "\n\n\n***** Install Cloud9 *****\n"                                                                           && \
     git clone https://github.com/c9/core.git /cloud9                                                                    && \
     cd /cloud9                                                                                                          && \
     scripts/install-sdk.sh                                                                                              && \
     \
-    echo -e "\n\n\n***** Make the NodeJS installed with Cloud9 available (WARNING: it is an old version) *****\n"       && \
+    echo "\n\n\n***** Make the NodeJS installed with Cloud9 available (WARNING: it is an old version) *****\n"          && \
     ln -s /root/.c9/node/bin/node /usr/bin/node                                                                         && \
     \
-    echo -e "\n\n\n***** Install git-aware-prompt *****\n"                                                              && \
+    echo "\n\n\n***** Install git-aware-prompt *****\n"                                                                 && \
     git clone git://github.com/jimeh/git-aware-prompt.git /root/git-aware-prompt                                        && \
     chmod u=rwX,g=,o= -R /root                                                                                          && \
     \
-    echo -e "\n\n\n***** Clean packages *****\n"                                                                        && \
+    echo "\n\n\n***** Clean the packages *****\n"                                                                       && \
     apt-get -y autoremove --purge python build-essential                                                                && \
     apt-get -y autoclean                                                                                                && \
     apt-get -y clean                                                                                                    && \
