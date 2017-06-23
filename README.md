@@ -14,12 +14,12 @@ docker pull aureliend/cloud9:latest
 
 ### Run
 ```bash
-docker run --rm --name cloud9 -it -p 80:80 aureliend/cloud9:latest
+docker run --rm --name cloud9 -p 80:80 aureliend/cloud9:latest
 ```
 
 ### Build
 ```bash
-docker build -t aureliend/cloud9:latest --compress .
+docker build -t aureliend/cloud9:latest --compress . --build-arg BUILD_DATE="0000-00-00T00:00:00" --build-arg VCS_REF="TEST"
 ```
 
 ### Customize server
@@ -62,7 +62,7 @@ echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 
 ## Other commands
 
-### Use bash (for tests)
+### Run with command line bash
 ```bat
 docker run --rm --name cloud9 -it -p 80:80 aureliend/cloud9:latest bash
 ```
